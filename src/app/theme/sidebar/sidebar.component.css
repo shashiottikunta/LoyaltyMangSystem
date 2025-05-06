@@ -1,0 +1,97 @@
+/* Sidebar styles */
+.sidebar {
+  width: 200px; /* Default width */
+  height: 100vh;
+  background-color: #223e4e;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: width 0.3s ease, transform 0.3s ease;
+  z-index: 1000; /* Ensure sidebar is above other content */
+  font-size: 18px;
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar.collapsed {
+  width: 110px; /* Decreased width when collapsed */
+}
+
+/* Toggle button styles */
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: -50px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+/* Adjust list styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  position: relative;
+  cursor: pointer; /* Ensure cursor is a pointer for list items */
+}
+
+/* Active link styles */
+ul li.active-link {
+  background-color: white; /* Background color for active link */
+  color: black; /* Text color for active link */
+  font-weight: bold; /* Optionally make the text bold */
+  width: 100%; /* Full width */
+}
+
+ul li.active-link::before {
+  content: ''; /* Add an empty content before for styling */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white; /* Match the active background color */
+  z-index: -1; /* Ensure it's behind the text */
+}
+
+ul li i {
+  font-size: 24px;
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Logout item styles */
+.sidebar .logout {
+  margin-top: auto; /* Pushes the logout button to the bottom */
+  border-top: 1px solid #ddd; /* Optional: adds a line above the logout item */
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .logout a {
+  color: #d9534f; /* Optional: gives the logout link a distinct color */
+  font-weight: bold; /* Optional: makes the logout text bold */
+  text-decoration: none;
+  cursor: pointer; /* Ensure cursor is a pointer for logout link */
+}
+
+.sidebar .logout i {
+  margin-right: 8px; /* Space between icon and text */
+}

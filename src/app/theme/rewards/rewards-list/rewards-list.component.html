@@ -1,0 +1,70 @@
+<div class="col-lg-12">
+    <br>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">SL.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Available To</th>
+          <th scope="col">Available From</th>
+          <th scope="col">Points</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th *ngIf="role === 'Customer'" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of rewardsList, index as i">
+          <th>{{i+1}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.avaiable_to}}</td>
+          <td>{{item.avaiable_from}}</td>
+          <td>{{item.points}}</td>
+          <td>{{item.description}}</td>
+          <td>{{item.status}}</td>
+          <td *ngIf="role === 'Customer'"><button type="button" class="btn btn-success" 
+            (click)="redem(item)">Redem</button>
+          </td>
+        </tr>
+        <tr *ngIf="rewardsList.length == 0">
+          <td colspan="6" class="text-center">No Records Found</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </div>
+
+
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Reward Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="rewardData?.content">
+          <p><strong>Reward Name:</strong> {{rewardData?.content.reward_name}}</p>
+          <p><strong>Coupon Code:</strong> {{rewardData?.content.coupon_code}}</p>
+          <p><strong>Valid Till:</strong> {{rewardData?.content.valid_till}}</p>
+          <br>
+          <b style="color: green;">{{rewardData?.message}}</b>
+
+        </div>
+        <div>
+       <b style="color:red">{{this.rewardData?.errorMessage}}
+      </b>         </div>
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 

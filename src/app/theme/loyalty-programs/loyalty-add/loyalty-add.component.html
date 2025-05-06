@@ -1,0 +1,82 @@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+          <i class="fa fa-arrow-left" aria-hidden="true" (click)="goBack()"></i> Loyalty Add
+            <div class="card-body">
+                <form [formGroup]="loyaltyForm">
+                    <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">Name</label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" id="status" formControlName="name" placeholder="Select name" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">Description</label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" id="status" formControlName="description" placeholder="Select Description"
+                            class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">Start Date</label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="date" formControlName="startDate" placeholder="Start Date" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">End Date</label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="date" formControlName="endDate" placeholder="End Date" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">Min Purchase</label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" formControlName="minPurchase" placeholder="Enter Min Purchase" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="row pt-2">
+                      <div class="col-md-10 d-flex">
+                        <div class="col-md-4">
+                          <label class="form-label">Status</label>
+                        </div>
+                        <div class="col-md-6">
+                          <select type="text" class="form-control" formControlName="status">
+                            <option value="">Select Status</option>
+                            <option *ngFor="let role of customersList" [value]="role.role_id">{{role.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div> -->
+                    <div class="row pt-2">
+                        <div class="col-md-10 d-flex">
+                            <button type="button" class="btn btn-info" (click)="saveLoyalty()">Save</button>
+    
+                            </div>
+                            </div>
+          
+                  </form> 
+            </div>
+        </div>
+    </div>
+</div>

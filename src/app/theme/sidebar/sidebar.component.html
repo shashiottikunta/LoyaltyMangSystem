@@ -1,0 +1,55 @@
+<div class="sidebar" [class.hidden]="isHidden" [class.collapsed]="isCollapsed">
+  <i (click)="toggleSidebar()" class="fa fa-bars toggle-btn" aria-hidden="true"></i>
+
+  <!-- Expanded Sidebar -->
+  <ul *ngIf="!isCollapsed">
+    <li style="font-weight:500; font-size: 15px;">LOYALTY MANAGEMENT SYSTEM</li>
+    <br>
+    <li [class.active-link]="activeRoute === 'dashboard'" >
+      <a  (click)="navigate('/dashboard')" routerLinkActive="active-link">Dashboard</a>
+    </li>
+    <li *ngIf="role === 'Admin'" [class.active-link]="activeRoute === 'customers'">
+      <a (click)="navigate('/customers-list')" routerLinkActive="active-link">Customers</a>
+    </li>
+    <li *ngIf="role === 'Customer' || role === 'Admin'" [class.active-link]="activeRoute === 'transctions'">
+      <a (click)="navigate('/transctions-list')" routerLinkActive="active-link">Transactions</a>
+    </li>
+    <li *ngIf="role === 'Admin'" [class.active-link]="activeRoute === 'programs'">
+      <a (click)="navigate('/loyalty-programs-list')" routerLinkActive="active-link">Loyalty Programs</a>
+    </li>
+    <li *ngIf="role === 'Admin' || role === 'Customer'" [class.active-link]="activeRoute === 'rewards'">
+      <a (click)="navigate('/rewards-list')" routerLinkActive="active-link">Rewards</a>
+    </li>
+    <li *ngIf="role === 'Customer'" [class.active-link]="activeRoute === 'myrewards'">
+      <a (click)="navigate('/my-rewards')" routerLinkActive="active-link">My Rewards</a>
+    </li>
+    <li [class.active-link]="activeRoute === 'password'">
+      <a (click)="navigate('/password')" routerLinkActive="active-link">Change Password</a>
+    </li>
+    <li style="margin-top: 200px;" class="logout" (click)="logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+    </li>
+  </ul>
+
+  <!-- Collapsed Sidebar -->
+  <ul *ngIf="isCollapsed" style="margin-left: 25px;">
+    <li><h6><b>LMS</b></h6></li>
+    <li><i class="fa fa-dashboard" (click)="navigate('/dashboard')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'dashboard'"></i>
+    <br>
+    <!-- <p style="margin-left: -60px ;margin-top: 65px;">dashboard</p> -->
+  </li> 
+
+    <li  *ngIf="role === 'Admin'  "><i class="fa fa-users" aria-hidden="true" (click)="navigate('/customers-list')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'customers'"></i>
+      <!-- <p style="margin-left: -60px ;margin-top: 65px;">dashboard</p> -->
+    </li> 
+    
+    <li *ngIf="role === 'Customer' || role === 'Admin'"><i class="fa fa-exchange" aria-hidden="true" (click)="navigate('/transctions-list')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'transctions'"></i></li>
+    <li *ngIf="role === 'Admin'"><i class="fa fa-tasks" aria-hidden="true" (click)="navigate('/loyalty-programs-list')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'programs'"></i></li>
+    <li *ngIf="role === 'Admin' || role === 'Customer'"><i class="fa fa-star" aria-hidden="true" (click)="navigate('/rewards-list')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'rewards'"></i></li>
+    <li *ngIf="role === 'Customer'"><i class="fa fa-trophy" aria-hidden="true" (click)="navigate('/my-rewards')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'myrewards'"></i></li>
+    <li><i class="fa fa-unlock-alt" aria-hidden="true" (click)="navigate('/password')" routerLinkActive="active-link" [class.active-link]="activeRoute === 'password'"></i></li>
+    <li  style="margin-top: 250px;" class="logout" (click)="logout()">
+      <i class="fa fa-sign-out" aria-hidden="true"></i>
+    </li>
+  </ul>
+</div>

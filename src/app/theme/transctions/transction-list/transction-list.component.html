@@ -1,0 +1,113 @@
+<div class="col-lg-12">
+    <div class="text-right" *ngIf="role=='Admin'">
+      <button type="button" (click)="addTransction()" class="btn btn-secondary">Add Transction</button>
+    </div>
+    <br>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">SL.No</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Loyalty Program Name</th>
+          <th scope="col">Points Earned</th>
+          <th scope="col">Purchase Amount($)</th>
+          <th scope="col">Purchase Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through the transaction list -->
+        <tr *ngFor="let item of transactionList; index as i">
+          <th>{{i + 1}}</th>
+          <td>{{item.first_name}} {{item.last_name}}</td>
+          <td>{{item.loyalty_program_name}}</td>
+          <td>{{item.points_earned}}</td>
+          <td>{{item.purchase_amount}}</td>
+          <td>{{item.purchase_date}}</td>
+        </tr>
+    
+        <!-- Display 'No Records Found' if the list is empty -->
+        <tr *ngIf="transactionList.length === 0">
+          <td colspan="6" class="text-center">No Records Found</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  
+  </div>
+  
+  
+  
+  
+  <!-- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Transction Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="transctionForm" >
+            <div class="row pt-2">
+                <div class="col-md-10 d-flex">
+                    <div class="col-md-4">
+                        <label class="form-label">Select Customer</label>
+                    </div>
+                    <div class="col-md-6">
+
+                    <select type="text"  class="form-control" formControlName="customer">
+                        <option value="">Select Customer</option>
+                        <option *ngFor="let role of customersList" [value]="role.role_id">{{role.name}}</option>
+                    </select>
+</div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-md-10 d-flex">
+                    <div class="col-md-4">
+                        <label class="form-label">Purchase Date</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" id="status" formControlName="purchaseDate" placeholder="Select Date"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-md-10 d-flex">
+                    <div class="col-md-4">
+                        <label class="form-label">Amount</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" formControlName="amount" placeholder="Enter Amount"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+         
+            <div class="row pt-2">
+                <div class="col-md-10 d-flex">
+                    <div class="col-md-4">
+                        <label class="form-label">Status</label>
+                    </div>
+                    <div class="col-md-6">
+                      <select type="text"  class="form-control" formControlName="status">
+                        <option value="">Select Status</option>
+                        <option *ngFor="let role of customersList" [value]="role.role_id">{{role.name}}</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+         
+            </form>
+    
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>  -->
+  
